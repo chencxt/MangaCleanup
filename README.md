@@ -1,13 +1,13 @@
 # MangaCleanup
 
-ttkbootstrap GUI：漫画清字。两种策略共用同一提示词：
+ttkbootstrap GUI：基于猫译员的漫画清字应用, 方便嵌字一键清稿修图。两种策略共用同一提示词：
 
 - **过审 = 全图编辑**：整图发给图像编辑模型，失败重试（默认 2 次）后自动回退到截屏回填。
 - **不过审 = 截屏回填**：按 `.neko` 中 `texts.json` 的 `bubbleBox`（回退 `box`）+ 可配置扩展像素（默认 20px）截块，逐块编辑后回填原位。
 
 `.neko` 本质是 zip，`texts.json` 位置不固定，程序内自动查找；按 `project.json` 文件名优先匹配，失败按顺序回退，查不到则兼容处理（截屏模式无框时转全图）。
 
-## 环境（uv 隔离，Python 3.12.8）
+## 启动方式（uv 隔离，Python 3.12.8）
 
 ```powershell
 uv venv --python 3.12.8
