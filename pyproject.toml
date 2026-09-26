@@ -1,0 +1,14 @@
+[project]
+name = "mangacleanup"
+version = "0.1.0"
+description = "Manga text cleanup GUI (ttkbootstrap) - full-image edit + crop-refill via OpenAI/Gemini"
+readme = "README.md"
+requires-python = ">=3.12.8"
+dependencies = [
+  "ttkbootstrap>=1.10.1",
+  "Pillow>=10.0.0",
+  "requests>=2.31.0",
+]
+
+[tool.uv]
+package = false

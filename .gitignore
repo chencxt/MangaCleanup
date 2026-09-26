@@ -1,0 +1,23 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Local runtime
+config.json
+results.csv
+cleaned/
+*/cleaned/
+__pycache__/
+
+# Logs & editors
+*.log
+.vscode/
+.idea/
+.DS_Store
