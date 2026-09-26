@@ -14,6 +14,8 @@ config.json
 results.csv
 cleaned/
 */cleaned/
+example-manga/
+example-neko/
 __pycache__/
 
 # Logs & editors
