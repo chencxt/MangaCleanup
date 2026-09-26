@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 from pathlib import Path
 
 from utils.constants import (
@@ -15,7 +16,14 @@ from utils.constants import (
     DEFAULT_PROMPT,
 )
 
-CONFIG_PATH = Path(__file__).resolve().parent.parent / "config.json"
+def _app_dir() -> Path:
+    # PyInstaller frozen exe: config 放在 exe 旁边，而不是 _MEI 临时目录
+    if getattr(sys, "frozen", False):
+        return Path(sys.executable).resolve().parent
+    return Path(__file__).resolve().parent.parent
+
+
+CONFIG_PATH = _app_dir() / "config.json"
 
 
 def default_config() -> dict:

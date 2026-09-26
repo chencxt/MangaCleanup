@@ -27,3 +27,16 @@ uv run python main.py
 - Key 优先读环境变量 `OPENAI_API_KEY` / `GEMINI_API_KEY`（或 `GOOGLE_API_KEY`）/ `XAI_API_KEY`，勾选记住才写入 `config.json`（该文件含敏感信息，不提交）。
 - 分辨率 `size`：留空即 `auto`（默认）；OpenAI 填 `WxH`（如 `1024x1536`），Gemini / Grok 填 `1K / 2K` 或宽高比（如 `16:9`）。下拉选项随协议切换，不适用的值切换时自动清空。
 - 输出默认 `输入目录/cleaned/`，文件名 `原名_cleaned.jpg`，附 `results.csv`。
+
+## 打包（PyInstaller，Windows 单文件）
+
+```powershell
+uv pip install pyinstaller
+uv run pyinstaller --noconfirm --clean --name MangaCleanup --windowed --onefile main.py
+# 已有 spec 后可直接复用
+uv run pyinstaller MangaCleanup.spec
+```
+
+- 产物：`dist/MangaCleanup.exe`（无控制台窗口）。
+- `config.json` 在 exe 模式下读写 exe 旁边的同名文件，源码运行则读写仓库根目录。
+- `dist/`、`build/` 已忽略不提交；`MangaCleanup.spec` 已提交，入口或依赖变化后重跑第一条命令更新。
